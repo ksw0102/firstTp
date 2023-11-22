@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,33 +16,20 @@ public class Deliver {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column
-	private String title;
-	@Column
-	private String genre;
-	@Column
-	private int price;
-	@Column
-	private String image;
-	@Column
-	private String text;
-	@Column
 	private String address;
 	@Column
 	private String review;
-
+@ManyToOne
+private Food food;
+private int quantity;
+// 푸드당 딜리버를 만들어줘야한다
 	public Deliver() {
 		super();
 	}
 
-	public Deliver(long id, String title, String genre, int price, String image, String text, String address,
-			String review) {
+	public Deliver(long id,String address, String review) {
 		super();
 		this.id = id;
-		this.title = title;
-		this.genre = genre;
-		this.price = price;
-		this.image = image;
-		this.text = text;
 		this.address = address;
 		this.review = review;
 	}
@@ -54,45 +42,6 @@ public class Deliver {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getGenre() {
-		return genre;
-	}
-
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
 	
 	public String getAddress() {
 		return address;

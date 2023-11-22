@@ -18,12 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tp.deliver.model.Deliver;
-import com.tp.deliver.model.Purchase;
 import com.tp.deliver.service.DeliverService;
 
 @RestController
-@RequestMapping
-@CrossOrigin(origins = "http://localhost:3000", methods = { RequestMethod.GET, RequestMethod.POST })
+@RequestMapping("/products")
+@CrossOrigin(origins = "http://localhost:3000", methods= {RequestMethod.GET, RequestMethod.POST})
 public class DeliverController {
 
 	private DeliverService deliverService;
@@ -32,6 +31,11 @@ public class DeliverController {
 	public DeliverController(DeliverService deliverService) {
 		super();
 		this.deliverService = deliverService;
+	}
+	
+	@GetMapping("test")
+	public ResponseEntity<String> test() {
+		return new ResponseEntity<>("테스트 성공", HttpStatus.OK);
 	}
 
 	@PostMapping()
@@ -49,32 +53,15 @@ public class DeliverController {
 		return new ResponseEntity<Deliver>(deliverService.getDeliverById(id), HttpStatus.OK);
 	}
 
-	@PutMapping("{id}")
-	public ResponseEntity<Deliver> updateDeliverById(@RequestBody Deliver deliver, @PathVariable long id) {
-		return new ResponseEntity<Deliver>(deliverService.updateDeliverById(deliver, id), HttpStatus.OK);
-	}
 
-	@DeleteMapping("{id}")
-	public ResponseEntity<String> deleteDeliverById(@PathVariable long id) {
-		return new ResponseEntity<String>("Deleted.", HttpStatus.OK);
-	}
-
-	@PostMapping("purchase")
-	public ResponseEntity<Purchase> savePurchase(@RequestBody Purchase purchase) {
-		return new ResponseEntity<Purchase>(deliverService.savePurchase(purchase), HttpStatus.OK);
-	}
-
-	@PostMapping("purchaselist")
-	public ResponseEntity<List<Purchase>> savePurchaseList(@RequestBody List<Purchase> purchaseList) {
-		List<Purchase> savedPurchaseList = new ArrayList<Purchase>();
-		for (Purchase purchase : purchaseList) {
-			savedPurchaseList.add(deliverService.savePurchase(purchase));
-		}
-		return new ResponseEntity<List<Purchase>>(savedPurchaseList, HttpStatus.OK);
-	}
-
-	@GetMapping("purchase")
-	public ResponseEntity<List<Purchase>> getAllPurchase() {
-		return new ResponseEntity<List<Purchase>>(deliverService.getAllPurchase(), HttpStatus.OK);
-	}
+//	@PutMapping("{id}")
+//	public ResponseEntity<Deliver> updateDeliverById(@RequestBody Deliver deliver, @PathVariable long id) {
+//		return new ResponseEntity<Deliver>(deliverService.updateDeliverById(deliver, id), HttpStatus.OK);
+//	}
+//
+//	@DeleteMapping("{id}")
+//	public ResponseEntity<String> deleteDeliverById(@PathVariable long id) {
+//		return new ResponseEntity<String>("Deleted.", HttpStatus.OK);
+//	}
+//
 }
