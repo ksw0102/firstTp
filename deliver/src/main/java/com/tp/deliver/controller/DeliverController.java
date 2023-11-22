@@ -1,17 +1,14 @@
 package com.tp.deliver.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,7 +19,7 @@ import com.tp.deliver.service.DeliverService;
 
 @RestController
 @RequestMapping("/products")
-@CrossOrigin(origins = "http://localhost:3000", methods= {RequestMethod.GET, RequestMethod.POST})
+@CrossOrigin(origins = "http://localhost:3000", methods = { RequestMethod.GET, RequestMethod.POST })
 public class DeliverController {
 
 	private DeliverService deliverService;
@@ -32,7 +29,7 @@ public class DeliverController {
 		super();
 		this.deliverService = deliverService;
 	}
-	
+
 	@GetMapping("test")
 	public ResponseEntity<String> test() {
 		return new ResponseEntity<>("테스트 성공", HttpStatus.OK);
@@ -52,7 +49,6 @@ public class DeliverController {
 	public ResponseEntity<Deliver> getDeliverById(@PathVariable long id) {
 		return new ResponseEntity<Deliver>(deliverService.getDeliverById(id), HttpStatus.OK);
 	}
-
 
 //	@PutMapping("{id}")
 //	public ResponseEntity<Deliver> updateDeliverById(@RequestBody Deliver deliver, @PathVariable long id) {
