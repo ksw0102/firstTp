@@ -19,15 +19,16 @@ public class Deliver {
 	private String address;
 	@Column
 	private String review;
-@ManyToOne
-private Food food;
-private int quantity;
+	@ManyToOne
+	private Food food;
+	private int quantity;
+
 // 푸드당 딜리버를 만들어줘야한다
 	public Deliver() {
 		super();
 	}
 
-	public Deliver(long id,String address, String review) {
+	public Deliver(long id, String address, String review) {
 		super();
 		this.id = id;
 		this.address = address;
@@ -42,19 +43,18 @@ private int quantity;
 		this.id = id;
 	}
 
-	
 	public String getAddress() {
 		return address;
 	}
-	
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
 	public String getReview() {
 		return review;
 	}
-	
+
 	public void setReview(String review) {
 		this.review = review;
 	}

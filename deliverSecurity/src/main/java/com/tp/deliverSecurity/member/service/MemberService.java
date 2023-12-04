@@ -29,7 +29,7 @@ public class MemberService {
 			throw new InvalidInputException("loginId", "이미 등록된 ID 입니다. 다른 ID로 입력 해주세요.");
 		}
 		member = new Member(null, memberDto.getLoginId(), memberDto.getPassword(), memberDto.getName(),
-				memberDto.getBirthDate(), memberDto.getGender(), memberDto.getEmail());
+				memberDto.getBirthDate(), memberDto.getGender());
 		memberRepository.save(member);
 		return "회원가입 완료!";
 	}

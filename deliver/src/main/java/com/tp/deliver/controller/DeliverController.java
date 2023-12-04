@@ -1,5 +1,6 @@
 package com.tp.deliver.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tp.deliver.model.Deliver;
+import com.tp.deliver.model.Purchase;
 import com.tp.deliver.service.DeliverService;
 
 @RestController
@@ -50,14 +52,24 @@ public class DeliverController {
 		return new ResponseEntity<Deliver>(deliverService.getDeliverById(id), HttpStatus.OK);
 	}
 
-//	@PutMapping("{id}")
-//	public ResponseEntity<Deliver> updateDeliverById(@RequestBody Deliver deliver, @PathVariable long id) {
-//		return new ResponseEntity<Deliver>(deliverService.updateDeliverById(deliver, id), HttpStatus.OK);
-//	}
-//
-//	@DeleteMapping("{id}")
-//	public ResponseEntity<String> deleteDeliverById(@PathVariable long id) {
-//		return new ResponseEntity<String>("Deleted.", HttpStatus.OK);
-//	}
-//
+	@PostMapping("dvpurchase")
+	public ResponseEntity<Purchase> savePurchase(@RequestBody Purchase purchase) {
+		return new ResponseEntity<Purchase>(deliverService.savePurchase(purchase), HttpStatus.OK);
+	}
+
+	@PostMapping("dvpurchaselist")
+	public ResponseEntity<List<Purchase>> savePurchaseList(@RequestBody List<Purchase> purchaseList) {
+		List<Purchase> savedPurchaseList = new ArrayList<Purchase>();
+		for (Purchase purchase : purchaseList) {
+			savedPurchaseList.add(deliverService.savePurchase(purchase));
+		}
+		return new ResponseEntity<List<Purchase>>(savedPurchaseList, HttpStatus.OK);
+	}
+
+	@GetMapping("dvpurchase")
+	public ResponseEntity<List<Purchase>> getAllPurchase() {
+		return new ResponseEntity<List<Purchase>>(deliverService.getAllPurchase(), HttpStatus.OK);
+
+	}
+
 }

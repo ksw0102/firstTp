@@ -17,7 +17,7 @@ import jakarta.persistence.TemporalType;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "member", uniqueConstraints = {
+@Table(name = "test_member", uniqueConstraints = {
 		@UniqueConstraint(name = "uk_member_login_id", columnNames = { "loginId" }) })
 public class Member {
 	@Id
@@ -41,15 +41,12 @@ public class Member {
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
 
-	@Column(nullable = false, length = 30)
-	private String email;
-
 	public Member() {
 		super();
 	}
 
-	public Member(Long id, String loginId, String password, String name, LocalDate birthDate, Gender gender,
-			String email) {
+	public Member(Long id, String loginId, String password, String name, LocalDate birthDate, Gender gender
+) {
 		super();
 		this.id = id;
 		this.loginId = loginId;
@@ -57,7 +54,7 @@ public class Member {
 		this.name = name;
 		this.birthDate = birthDate;
 		this.gender = gender;
-		this.email = email;
+
 	}
 
 	public Long getId() {
@@ -108,12 +105,5 @@ public class Member {
 		this.gender = gender;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
 }

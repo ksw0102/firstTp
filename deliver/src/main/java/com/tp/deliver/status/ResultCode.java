@@ -1,17 +1,18 @@
-package com.tp.deliver.status;
-
-public enum ResultCode {
-
-	SUCCESS("정상 처리 완료."),
-	ERROR("에러 발생 처리 실패");
-	
-	private final String msg;
-	
-	private ResultCode(String msg) {
-		this.msg = msg;
-	}
-	
-	public String getMsg() {
-		return msg;
-	}
-}
+//package com.tp.deliver.status;
+//
+//import java.lang.constant.Constable;
+//import java.util.Optional;
+//
+//public enum ResultCode {
+//	SUCCESS("Processing completed"), ERROR("An error occurred. Please try again");
+//
+//	private final String msg;
+//
+//	private ResultCode(String msg) {
+//		this.msg = msg;
+//	}
+//
+//	public String getMsg() {
+//		return msg;
+//	}
+//}

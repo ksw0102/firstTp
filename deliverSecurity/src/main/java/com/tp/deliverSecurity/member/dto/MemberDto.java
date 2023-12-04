@@ -30,15 +30,12 @@ public class MemberDto {
 	private String gender;
 
 	@NotBlank
-	@Email
-	private String email;
 
 	public MemberDto() {
 		super();
 	}
 
-	public MemberDto(long id, String loginId, String password, String name, String birthDate, String gender,
-			String email) {
+	public MemberDto(long id, String loginId, String password, String name, String birthDate, String gender) {
 		super();
 		this.id = id;
 		this.loginId = loginId;
@@ -46,7 +43,6 @@ public class MemberDto {
 		this.name = name;
 		this.birthDate = birthDate;
 		this.gender = gender;
-		this.email = email;
 	}
 
 	public long getId() {
@@ -97,12 +93,6 @@ public class MemberDto {
 		this.gender = gender;
 	}
 
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
 }

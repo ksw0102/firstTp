@@ -20,8 +20,8 @@ import com.tp.deliver.service.FoodService;
 @RestController
 @RequestMapping("/foods")
 @CrossOrigin(origins = "http://localhost:3000", methods = { RequestMethod.GET, RequestMethod.POST })
-
 public class FoodController {
+
 	private FoodService foodService;
 
 	@Autowired
@@ -49,4 +49,7 @@ public class FoodController {
 	public ResponseEntity<Food> getFoodById(@PathVariable long id) {
 		return new ResponseEntity<Food>(foodService.getFoodById(id), HttpStatus.OK);
 	}
+
+//	foods 부분
+
 }
