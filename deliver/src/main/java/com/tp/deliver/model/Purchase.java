@@ -30,7 +30,7 @@ public class Purchase {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false, updatable = false)
 	private LocalDateTime createAt;
-	
+
 	public Purchase() {
 		super();
 	}
@@ -83,7 +83,5 @@ public class Purchase {
 	public void setCreateAt(LocalDateTime createAt) {
 		this.createAt = createAt;
 	}
-	
-	
 
 }

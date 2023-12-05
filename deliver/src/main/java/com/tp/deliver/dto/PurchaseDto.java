@@ -10,12 +10,14 @@ public class PurchaseDto {
 
 	@ManyToOne
 	private Food food;
-	
+
 	private int quantity;
-	
+
 	private String loginId;
 
-	public PurchaseDto() {}
+	public PurchaseDto() {
+	}
+
 	public PurchaseDto(long id, Food food, int quantity, String loginId) {
 		super();
 		this.id = id;
@@ -23,8 +25,6 @@ public class PurchaseDto {
 		this.quantity = quantity;
 		this.loginId = loginId;
 	}
-
-	
 
 	public long getId() {
 		return id;
@@ -57,7 +57,5 @@ public class PurchaseDto {
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
 	}
-	
-	
-}
 
+}
