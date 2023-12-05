@@ -19,6 +19,7 @@ public class PurchaseDto {
 	}
 
 	public PurchaseDto(long id, Food food, int quantity, String loginId) {
+//		test
 		super();
 		this.id = id;
 		this.food = food;
